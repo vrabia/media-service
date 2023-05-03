@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  media-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: media-service
+    restart: always
+    ports:
+      - ${SERVICE_HOST_PORT}:${SERVICE_CONTAINER_PORT}
+    networks:
+      - ${VRABIA_NETWORK}
+    env_file:
+      - .envrc
+
+networks:
+  auth-service_vrabia-network:
+    external: true

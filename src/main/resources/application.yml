@@ -1,0 +1,27 @@
+server:
+  port: ${SERVICE_CONTAINER_PORT:8080}
+  servlet:
+    context-path: ${SERVICE_CONTEXT_PATH:/}
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    default: common
+
+logging:
+  file:
+    name: ${LOG_FILE_NAME:logs/app.log}
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+      springframework:
+        web:  ${LOG_LEVEL:INFO}
+
+jwt:
+  issuer: ${JWT_ISSUER}
+  secret: ${JWT_SECRET}
