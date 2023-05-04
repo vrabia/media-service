@@ -35,3 +35,4 @@ build/
 settings.xml
 
 logs/
+.envrc

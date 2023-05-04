@@ -25,3 +25,5 @@ logging:
 jwt:
   issuer: ${JWT_ISSUER}
   secret: ${JWT_SECRET}
+
+python-client-id: ${PYTHON_CLIENT_ID}
