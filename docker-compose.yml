@@ -12,7 +12,12 @@ services:
       - ${VRABIA_NETWORK}
     env_file:
       - .envrc
+    volumes:
+      - communities-images-volume:/images
 
 networks:
   auth-service_vrabia-network:
     external: true
+
+volumes:
+  communities-images-volume:
