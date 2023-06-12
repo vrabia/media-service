@@ -15,6 +15,8 @@ public class MediaServiceSecurityBeans {
     public PublicEndpoints authServicePublicEndpoints() {
         PublicEndpoints publicEndpoints = new PublicEndpoints();
         publicEndpoints.getEndpoints().add("/image/communities/**");
+        publicEndpoints.getEndpoints().add("/image/store-html/**");
+        publicEndpoints.getEndpoints().add("/image/html/**");
         return publicEndpoints;
     }
 
