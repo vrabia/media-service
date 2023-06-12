@@ -22,6 +22,7 @@ public class ClientAuthorizationFilter extends OncePerRequestFilter {
     private String pythonClientId;
 
     private static final String LOAD_COMMUNITIES_IMAGE_ENDPOINT = "/image/communities";
+    private static final String LOAD_COMMUNITY_MAP_HTML = "/image/store-html";
     private static final String CLIENT_ID_HEADER = "Client-Id";
 
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -36,7 +37,8 @@ public class ClientAuthorizationFilter extends OncePerRequestFilter {
         if("OPTIONS".equals(request.getMethod())) {
             return false;
         }
-        return request.getServletPath().equals(LOAD_COMMUNITIES_IMAGE_ENDPOINT);
+        return request.getServletPath().equals(LOAD_COMMUNITIES_IMAGE_ENDPOINT) ||
+                request.getServletPath().equals(LOAD_COMMUNITY_MAP_HTML);
     }
 
     private void validateAuthorizationHeader(HttpServletRequest request) {

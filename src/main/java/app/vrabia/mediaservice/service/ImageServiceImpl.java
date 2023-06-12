@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Objects;
 
 @Service
 @Slf4j
@@ -45,5 +47,14 @@ public class ImageServiceImpl implements ImageService {
             log.error("Error saving image", e);
             throw new VrabiaException(ErrorCodes.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Override
+    public List<String> getCommunityImageNames() {
+        File directory = new File(IMAGE_FOLDER);
+        if (directory.exists()) {
+            return List.of(Objects.requireNonNull(directory.list()));
+        }
+        return List.of();
     }
 }
